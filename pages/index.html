@@ -15,6 +15,7 @@
 	html,
 	body {
 		height: 100%;
+		touch-action: none;
 	}
 
 	.wrap {
@@ -63,10 +64,8 @@
 	<script>
 		//禁止默认事件
 		document.addEventListener('touchmove', event => {
-			if (event.cancelable) {
-				event.preventDefault();
-			}
-		}, false);
+			event.preventDefault();
+		}, {passive: false});
 
 		var pages = function (obj) {
 			const box = document.getElementById(obj.wrap),
